@@ -8,7 +8,7 @@ declare class Client {
     queue(name: string, options: Options.AssertQueue): Promise<Queue>;
     /** Closes the connection */
     close(): Promise<void>;
-    setPrefetchCount(count: number, global: boolean);
+    setPrefetchCount(count: number, global?: boolean);
 }
 
 declare type Consumer = (data: Object, done: Function) => void;
