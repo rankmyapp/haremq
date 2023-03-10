@@ -1,15 +1,11 @@
 ﻿import { Connection, Channel, Options, Replies } from 'amqplib';
 
-declare interface QueueOptions extends Options.AssertQueue {
-    isCompressed: boolean;
-}
-
 declare class Client {
     constructor(connection: Connection, channel: Channel, url: string);
     /** Reconnects the client */
     reconnect(): Promise<void>;
     /** Creates or connect to a queue */
-    queue(name: string, options: QueueOptions): Promise<Queue>;
+    queue(name: string, options: Options.AssertQueue): Promise<Queue>;
     /** Closes the connection */
     close(): Promise<void>;
     setPrefetchCount(count: number, global?: boolean);
