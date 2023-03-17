@@ -9,6 +9,7 @@ declare class Client {
     /** Closes the connection */
     close(): Promise<void>;
     setPrefetchCount(count: number, global?: boolean);
+    get isAlive(): boolean;
 }
 
 declare type Consumer = (data: Object, done: Function, reject: Function) => void;
